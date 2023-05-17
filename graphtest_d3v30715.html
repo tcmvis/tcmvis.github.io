@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="d3-color.min.js"></script>
+  <!-- <script src="d3-scale-chromatic.min.js"></script> -->
+  <script type="text/javascript" src="forceInABox.js"></script>  
+  <title>Two cool ways to visualize Network Data using D3.js V4</title>
+</head>
+<svg height="10" width="10" xmlns="http://www.w3.org/2000/svg" version="1.1"> <defs> <pattern id="circles-1" patternUnits="userSpaceOnUse" width="10" height="10"> <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSJ3aGl0ZSIgLz4KICA8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0iYmxhY2siLz4KPC9zdmc+" x="0" y="0" width="10" height="10"> </image> </pattern> </defs> </svg>
+<body>
+<div class="center">
+    <h1 align ="center">Two cool ways to visualize Network Data using D3.js V4</h1>
+</div>
+
+
+<div align="center" id="chart01">
+</div>
+<div align="center" id="chart02">
+</div>
+
+<script>
+
+var useGroupInABox = false,
+  drawTemplate = false,
+  template = "none";
+
+d3.select("#selectTemplate").property("value", template);
+d3.select("#checkShowTemplate").property("checked", drawTemplate);
+
+var margin = {top: 0, right: 0, bottom: 0, left: 0},
+    width = 300,
+    height = 300;
+
+// var force = d3.forceSimulation()
+//     .force("charge", d3.forceManyBody())
+//     .force("x", d3.forceX(width/2))
+//     .force("y", d3.forceY(height/2));
+// var force = d3.layout.force().nodes(nodes)
+//         .size([width, height])
+//         .charge();
+
+// var svg01 = d3.select("#chart01").append("svg")
+//     .attr("id", "svg01")
+//     .attr("width", width)
+//     .attr("height", height)
+//     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+// var legend01 = d3.select("#chart01").append("svg")
+//     .attr("id", "legend01")
+//     .attr("width", 270)
+//     .attr("height", height)
+//     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+var margin = {top: 150, right: 0, bottom: 0, left: 150},
+    width = 510,
+    height = 510;
+
+var x = d3.scale.ordinal().rangeRoundBands([0, width]),
+    z = d3.scale.linear().domain([0, 5]).clamp(true);
+// var  colmap = d3.scale.ordinal(d3.scale.category10()).domain(d3.range(10));
+
+    
+var svg02 = d3.select("#chart02").append("svg")
+    .attr("id", "svg02")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+var legend02 = d3.select("#chart02").append("svg")
+    .attr("id", "legend02")
+    .attr("width", 290)
+    .attr("height", height + margin.top + margin.bottom);
+
+function createGraphs() { 
+
+  var nodes;
+  var links;
+  var groups;
+
+  d3.csv("nodes.csv", function(error, data) {
+
+    if (error) throw error;
+    nodes = data;
+    
+    groups = d3.nest()
+      .key(function(d) { return d.group; })
+      .entries(nodes);    
+    
+    groups.forEach(function(d,i) {
+    
+      var str = "";
+      var tmpX;
+      var tmpY;
+      
+      // legend01.append('rect')                                     
+      //   .attr('x', 35 )
+      //   .attr('y', ((parseFloat(d3.select('#legend01').style('height')) - (groups.length * 22)) / 2) + (i * 22))
+      //   .attr('width', 18)                          
+      //   .attr('height', 18)                         
+      //   .style('fill', function() { return colmap(d.key); })                               
+      //   .style("fill-opacity", 0.7)
+      //   .style('stroke', function() { return colmap(d.key); });                               
+        
+      // legend01.append('text') 
+      //   .attr('x', 60)              
+      //   .attr('y', ((parseFloat(d3.select('#legend01').style('height')) - (groups.length * 22)) / 2) + 14 + (i * 22))
+      //   .attr("class", "legend")
+      //   .text( d.key );
+        
+      // legend02.append('rect')                                     
+      //   .attr('x', 60 )
+      //   .attr('y', ((parseFloat(d3.select('#legend02').style('height')) - (groups.length * 22)) / 2) + (i * 22))
+      //   .attr('width', 18)                          
+      //   .attr('height', 18)                         
+      //   .style('fill', function() { return colmap(d.key); })                               
+      //   .style("fill-opacity", 0.7)
+      //   .style('stroke', function() { return colmap(d.key); });            
+              
+      // legend02.append('text') 
+      //   .attr('x', 85)
+      //   .attr('y', ((parseFloat(d3.select('#legend02').style('height')) - (groups.length * 22)) / 2) + 14 + (i * 22))
+      //   .attr("class", "legend")
+      //   .text( d.key );
+      
+    });
+
+    var gsetData = [];
+    var setIntersects = [];
+    var setNames = [];
+    d3.csv("buyijiupdate.csv", function(error, data){
+    // d3.csv("qingrejiupdate.csv", function(error, data){
+        if(error) throw error;
+        sets = data;
+        console.log(sets);
+        var setCols = 16
+        var colNames = ['setId', 'd1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'd11', 'd12', 'd13', 'd14', 'd15']
+        // console.log(colNames);
+        var setRows = sets.length;
+        console.log(setRows);
+        console.log(setCols);
+        data.forEach(function(d){
+            
+            // console.log(d);
+            var set = [];
+            set.drugArray = [];
+            set.id = d.setId;
+            for(var i=1; i < setCols; i++){
+                // console.log(d[colNames[i]]);
+                if(d[colNames[i]] === undefined )
+                    continue;
+                else
+                 set.drugArray.push(d[colNames[i]]);
+            }
+            // console.log(set);
+
+            gsetData.push(set);
+            setNames.push(set.id);
+        });
+        console.log(gsetData);
+        console.log(setRows);
+    
+        setIntersects = [];
+        var maxCardi = -1;
+        var minCardi = 1;
+        var CountcoOccur = 0;
+        for(var ii=0; ii<setRows;ii++)
+        {
+            setIntersects[ii] = [];
+            for(var jj = 0; jj < setRows; jj++){
+                
+                var dArray1 = gsetData[ii].drugArray;
+                var dArray2 = gsetData[jj].drugArray;
+                // console.log(dArray1.length)
+                // console.log(dArray2.length)
+                // console.log(dArray1)
+                // console.log(dArray2)
+                var coOccur = 0;
+                
+                for(var c = 0; c < dArray1.length; c++){
+                    for(var c2 = 0; c2 < dArray2.length; c2++)
+                        {
+                        if (ii == jj)
+                          continue;
+                        if(dArray1[c] == dArray2[c2]){
+                          // console.log("c"+c+"c2"+c2+dArray1[c])
+                          coOccur ++;
+                          // console.log("ii"+ii+"jj"+jj+"coOccur"+coOccur)
+                        }
+                        
+                        }
+                }
+                // console.log(coOccur);
+                CountcoOccur=CountcoOccur+coOccur
+                
+                if( coOccur > maxCardi) 
+                   maxCardi = coOccur;
+                if( coOccur < minCardi)
+                  minCardi = coOccur;
+                setIntersects[ii][jj] = {val:coOccur, x:jj, y:ii};
+                // minCardi = min(coOccur, minCardi);
+            }
+        }
+        console.log(setIntersects);
+        console.log(maxCardi);
+        console.log(minCardi);
+        console.log(CountcoOccur/400);
+        var  colmap = d3.scale.ordinal(d3.interpolateBlues[maxCardi+1]).domain(d3.range(10));
+        // var colmap = d3.scale.category10();
+        
+       var indexArray = [];
+       indexArray = setNames.map(function(d,i) {return i;});
+      //  console.log(indexArray);
+       
+				x.domain(indexArray);
+      // console.log(x.bandwidth());
+      // console.log(x(0));
+      // console.log(x(1));
+      svg02.append("rect")
+          .attr("class", "background")
+          .attr("width", width)
+          .attr("height", height);    
+      
+          // define a hatch pattern
+      svg02
+        .append('defs')
+        .append('pattern')
+        .attr('id', 'diagonalHatch')
+        .attr('patternUnits', 'userSpaceOnUse')
+        .attr('width', 5)
+        .attr('height', 5)
+        .append('path')
+        // .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+        .attr('d', 'M0,0 l5,5 M5,0 l-5,5')
+        .attr('stroke', '#000000')
+        .attr('stroke-width', 0.5);
+
+
+      var row = svg02.selectAll(".row")
+          .data(setIntersects)
+        .enter().append("g")
+          .attr("class", "row")
+          .attr("transform", function(d, i) { return "translate(0," + x(i) + ")"; })
+          .each(rowDraw);
+
+      row.append("line")
+          .attr("x2", width);
+
+      row.append("text")
+          .attr("x", -6)
+          .attr("y", x.rangeBand() / 2)
+          .attr("dy", ".32em")
+          .attr("text-anchor", "end")
+          .text(function(d, i) { return gsetData[i].id; });
+
+      var column = svg02.selectAll(".column")
+          .data(setIntersects)
+        .enter().append("g")
+          .attr("class", "column")
+          .attr("transform", function(d, i) { return "translate(" + x(i) + ")rotate(-90)"; });
+
+      column.append("line")
+          .attr("x1", -width);
+
+      column.append("text")
+          .attr("x", 6)
+          .attr("y", x.rangeBand() / 2)
+          .attr("dy", ".32em")
+          .attr("text-anchor", "start")
+          .text(function(d, i) { return gsetData[i].id; });
+
+      function rowDraw(row, j) {
+        // console.log(j);
+        var cell = d3.select(this).selectAll(".cellAM")
+          .data(function(row, j) 
+          { 
+            return row;
+            // var uppertriangle = row.filter(function (d, i) { if(i > j) return d.val; });
+            // console.log(uppertriangle);
+            // return uppertriangle;
+          })
+          .enter()
+          .append("rect")
+          .attr("class", "cellAM")
+          .attr("x", function (d) { return x(d.x); })
+          .attr("width", x.rangeBand())
+          .attr("height", x.rangeBand())
+          // .style("fill-opacity", function (d, i) { 
+          //   if(j == i)
+          //     return 1;
+          //   else
+          //     return z(d.val); })
+          .style("fill", function (d,i) 
+                { 
+                  if(i == j)
+                    return "url(#diagonalHatch)";
+                  else
+                    return colmap(d.val); 
+                }) 
+          .on("mouseover", mouseover)
+          .on("mouseout", mouseout);
+      }
+
+      function mouseover(p) {
+        d3.selectAll(".row text").classed("active", function (d, i) { return i == p.y; });
+        d3.selectAll(".column text").classed("active", function (d, i) { return i == p.x; });
+      }
+
+      function mouseout() {
+        d3.selectAll("text").classed("active", false);
+      }
+
+      // Add legends
+      var cardiNums = d3.range(0,maxCardi+1);
+      console.log(cardiNums);
+      for(var i = 0; i < cardiNums.length; i++){
+        legend02.append('rect')                         
+        .attr('x', 60 )
+        .attr('y', ((parseFloat(d3.select('#legend02').style('height')) - (maxCardi * 22)) / 2) + (i * 22))
+        .attr('width', 18)                          
+        .attr('height', 18)                         
+        .style('fill', function() { return colmap(cardiNums[i]); })                               
+        .style("fill-opacity", 1)
+        .style('stroke', function() { return colmap(cardiNums[i]); });            
+    // add title
+    legend02.append('text')
+    .attr('x', 20)
+    .attr('y', ((parseFloat(d3.select('#legend02').style('height')) - (maxCardi * 22)) / 2) + 14 + (-1 * 22))
+    .attr("class", "legend")
+    .text("#Shared Medicines");
+
+      legend02
+        .append('text') 
+        .attr('x', 85)
+        .attr('y', ((parseFloat(d3.select('#legend02').style('height')) - (maxCardi * 22)) / 2) + 14 + (i * 22))
+        // .attr('y', ((parseFloat(d3.select('#legend02').style('height')) - (maxCardi * 22)) / 2) + 14 + (i * 22))
+        .attr("class", "legend")
+        .text( cardiNums[i] );
+      }
+   
+
+    });
+    
+  
+    
+   });
+
+}
+
+function dragstarted(d) {
+  if (!d3.event.active) force.alphaTarget(0.3).restart();
+  d.fx = d.x;
+  d.fy = d.y;
+}
+
+function dragged(d) {
+  d.fx = d3.event.x;
+  d.fy = d3.event.y;
+}
+
+function dragended(d) {
+  if (!d3.event.active) force.alphaTarget(0);
+  d.fx = null;
+  d.fy = null;
+}
+
+createGraphs();
+  
+</script>
