@@ -1,0 +1,822 @@
+{
+	"name": "补益剂","name2": "补益剂","fangji": "生脉散★、四君子汤★、参苓白术散★、八珍汤★、当归补血汤★、玉屏风散★、补中益气汤★、归脾汤★、龟鹿二仙胶★、右归丸、一贯煎★、肾气丸★、炙甘草汤(复脉汤)★、七宝美髯丹、大补阴丸★、四物汤★、六味地黄丸★、左归丸、地黄饮子★、完带汤★", 
+	"children": 
+	[
+	{"name": "人参","name2": "人参", "colour":"blue","fangji": "生脉散★、四君子汤★、参苓白术散★、八珍汤★", 
+	"children":
+		[
+			{"name": " ","name2": "人参", "fangji": "生脉散★、四君子汤★", 
+				"children":
+				[
+					
+					{
+
+				
+				"name": " ","name2": "人参", "fangji": "生脉散★、四君子汤★", 
+				"children":
+			
+
+
+				[
+					{
+				  "name": "五味子", "name2": "五味子", "fangji": "生脉散★", 
+				  "children": 
+								[
+									{
+										"name": "麦冬", "name2": "麦冬", "fangji": "生脉散★", "size": 1
+									}
+								]
+					},
+					{
+						"name": "白术", "name2": "白术","fangji": "四君子汤★", 
+						"children":
+						[
+							{
+								"name": "茯苓", "name2": "茯苓","fangji": "四君子汤★", 
+								"children": 
+								[
+									{
+										"name": "甘草", "name2": "甘草", "fangji": "四君子汤★", "size": 1
+									}
+								]
+							}
+						]
+					}
+			
+				]
+				
+			}
+]
+
+
+
+			},
+			{"name": " ","name2": "人参", "fangji": "八珍汤★", 
+				"children":
+
+				[					
+					{
+						"name": "熟地黄","colour":"blue","name2": "熟地黄","fangji": "八珍汤★", 
+						"children":
+						[
+							{
+								"name": "白术","name2": "白术","fangji": "八珍汤★", 
+								"children": 
+								[
+									{
+										"name": "茯苓","name2": "茯苓", "fangji": "八珍汤★",
+										"children":
+										[
+											{
+												"name": "炙甘草","name2": "炙甘草","fangji": "八珍汤★",  
+												"children":
+												[
+													{
+														"name": "生姜","name2": "生姜","fangji": "八珍汤★",  
+														"children":
+														[
+															{
+																"name": "当归","name2": "当归","fangji": "八珍汤★",  
+																"children":
+																[
+																	{
+																		"name": "大枣","name2": "大枣","fangji": "八珍汤★",  
+																		"children":[
+																			{
+																				"name": "白芍","name2": "白芍","fangji": "八珍汤★",
+																				"children":[
+																					{
+																						"name": "川芎","name2": "川芎","fangji": "八珍汤★",   "size": 1	
+																					}
+																				]	
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+			
+				]
+			}
+			,
+			{"name": "茯苓", "colour":"blue","name2": "茯苓", "fangji": "参苓白术散★", 
+				"children":
+				[
+				{
+				"name": "白术", "colour":"blue","name2": "白术","fangji": "参苓白术散★", 
+				"children":
+				[					
+					{
+						"name": "砂仁","name2": "砂仁", "colour":"black","fangji": "参苓白术散★", 
+						"children":
+						[
+							{
+								"name": "莲子","name2": "莲子","fangji": "参苓白术散★", 
+								"children": 
+								[
+									{
+										"name": "甘草","name2": "甘草", "fangji": "参苓白术散★",
+										"children":
+										[
+											{
+												"name": "桔梗","name2": "桔梗","fangji": "参苓白术散★",  
+												"children":
+												[
+													{
+														"name": "大枣","name2": "大枣","fangji": "参苓白术散★",  
+														"children":
+														[
+															{
+																"name": "白扁豆","name2": "白扁豆","fangji": "参苓白术散★",  
+																"children":
+																[
+																	{
+																		"name": "山药","name2": "山药","fangji": "参苓白术散★",  
+																		"children":[
+																			{
+																				"name": "薏苡仁","name2": "薏苡仁","fangji": "参苓白术散★",   "size": 1	
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+			
+				]
+				
+			}
+			
+
+
+] 
+			}
+
+			
+
+		] 
+		
+  	}
+	  ,
+	  {
+		"name": "黄芪","name2": "黄芪", "colour":"blue","fangji": "补中益气汤★、玉屏风散★、当归补血汤★、归脾汤★",
+  		"children": 
+		  [
+			{
+				"name": " ","name2": "黄芪",  "fangji": "补中益气汤★、玉屏风散★、当归补血汤★",
+				"children": 
+
+
+
+		  [
+			{
+				"name": "当归","name2": "当归", "fangji": "当归补血汤★","size": 1
+   			},
+			{
+				"name": "白术","name2": "白术","fangji": "补中益气汤★、玉屏风散★",
+				"children": 
+				[
+					{
+						"name": "防风","name2": "防风","fangji": "玉屏风散★","size": 1
+					},
+					{
+						"name": "当归","name2": "当归","fangji": "补中益气汤★",
+						"children": 
+						[
+							{
+								"name": "升麻","name2": "升麻","fangji": "补中益气汤★",
+								"children":
+								[
+									{
+										"name": "人参","name2": "人参","fangji": "补中益气汤★",
+										"children":
+										[
+											{
+												"name": "陈皮","name2": "陈皮","fangji": "补中益气汤★",
+												"children":
+												[
+													{
+														"name": "柴胡","name2": "柴胡","fangji": "补中益气汤★",
+														"children":
+														[
+															{
+																"name": "炙甘草","name2": "炙甘草", "fangji": "补中益气汤★","size": 1
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+					
+					
+				]
+   			}
+			   
+			
+			
+		]
+	},
+	{
+		"name": "龙眼肉","colour":"blue", "name2": "龙眼肉","fangji": "归脾汤★", 
+		"children":
+		[					
+			{
+				"name": "白术","name2": "白术","fangji": "归脾汤★", 
+				"children":
+				[
+					{
+						"name": "当归","name2": "当归","fangji": "归脾汤★", 
+						"children": 
+						[
+							{
+								"name": "炙甘草","name2": "炙甘草", "fangji": "归脾汤★",
+								"children":
+								[
+									{
+										"name": "人参","name2": "人参","fangji": "归脾汤★",  
+										"children":
+										[
+											{
+												"name": "远志","name2": "远志","fangji": "归脾汤★",  
+												"children":
+												[
+													{
+														"name": "酸枣仁","name2": "酸枣仁","fangji": "归脾汤★",  
+														"children":
+														[
+															{
+																"name": "木香","name2": "木香","fangji": "归脾汤★",   "size": 1	
+																
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+	
+		]
+		
+	}
+	]
+
+
+  	}
+	  ,
+
+	  {
+		"name": "鹿角胶","colour":"blue", "name2": "鹿角胶","fangji": "龟鹿二仙胶★、右归丸",
+		  "children": 
+		  [
+			{
+				
+				"name": " ","name2": "鹿角胶","fangji": "龟鹿二仙胶★",
+				"children":
+				[
+					{
+						
+						"name": "龟甲胶","colour":"blue","name2": "龟甲胶","fangji": "龟鹿二仙胶★",
+						"children":
+
+				[
+					{
+						"name": "枸杞子","name2": "枸杞子","fangji": "龟鹿二仙胶★",
+						"children":
+						[
+							{
+								"name": "人参","name2": "人参","fangji": "龟鹿二仙胶★", "size": 1
+							}
+						]
+					}
+				]
+			}]
+				
+			}
+							,
+							{
+							   "name": "肉桂", "colour":"blue","name2": "肉桂","fangji": "右归丸",
+							   "children":
+							   [
+								   {
+									   "name": "附子", "colour":"blue","name2": "附子","fangji": "右归丸",
+									   "children":
+									   [
+										   {
+											   "name": "熟地黄","name2": "熟地黄", "fangji": "右归丸",
+											   "children":
+											   [
+												   {
+													   "name": "山茱萸","name2": "山茱萸","fangji": "右归丸",
+													   "children":
+													   [
+														   {
+															   "name": "杜仲","name2": "杜仲","fangji": "右归丸", 
+															   "children":
+															   [
+																   {
+																	   "name": "枸杞子","name2": ":枸杞子","fangji": "右归丸",
+																	   "children":
+																	   [
+																		   {
+																			   "name": "菟丝子","name2": "菟丝子", "fangji": "右归丸",
+																			   "children":
+																			   [
+																				   {
+																					   "name": "当归","name2": "当归","fangji": "右归丸",
+																					   "children":
+																					   [
+																						   {
+																							   "name": "山药","name2": "山药","fangji": "右归丸", "size": 1	
+																						   }
+																					   ]
+																				   }
+																			   ]
+																		   }
+																	   ]
+																   }
+															   ]
+														   }
+													   ]
+												   }
+											   ]
+										   }
+									   ]
+								   }
+							   ]
+						   }
+
+		]
+	  }
+	  ,
+
+	  
+	 {
+		"name": "地黄", "name2": "地黄","colour":"blue","fangji": "炙甘草汤(复脉汤)★、一贯煎★、肾气丸★",  
+  		"children": 
+		  [
+			{
+				"name": "麦冬","name2": "麦冬","fangji": "炙甘草汤(复脉汤)★、一贯煎★",  
+				"children": 
+				[
+					
+
+
+					{
+						"name": "北沙参","name2": "北沙参","fangji": "一贯煎★",  
+						"children": 	
+						[
+							{
+								"name": "川楝子","name2": "川楝子","fangji": "一贯煎★",
+								"children":
+								[
+									{
+										"name": "枸杞子","name2": "枸杞子","fangji": "一贯煎★",
+										"children":
+										[
+											{
+												"name": "当归","name2": "当归","fangji": "一贯煎★","size": 1
+											}
+										]
+									}
+								]
+							}
+						]	
+					}
+					,
+					{
+						"name": "阿胶","name2": "阿胶","fangji": "炙甘草汤(复脉汤)★",  
+						"children": 
+						[
+							{
+								"name": "火麻仁","name2": "火麻仁","fangji": "炙甘草汤(复脉汤)★",  
+								"children":
+								[
+									{
+										"name": "桂枝","name2": "桂枝","fangji": "炙甘草汤(复脉汤)★",  
+										"children":
+										[
+											{
+												"name": "人参","name2": "人参","fangji": "炙甘草汤(复脉汤)★",  
+												"children":
+												[
+													{
+														"name": "大枣","name2": "大枣","fangji": "炙甘草汤(复脉汤)★",  
+														"children":
+														[
+															{
+																"name": "炙甘草","name2": "炙甘草","fangji": "炙甘草汤(复脉汤)★",  
+																"children":[
+																	{
+																		"name": "生姜","name2": "生姜","fangji": "炙甘草汤(复脉汤)★",   "size": 1	
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+					
+				]
+   			}
+			   
+			,
+			{
+				"name": "泽泻","name2": "泽泻","fangji": "肾气丸★",
+				"children": 
+				[
+					{
+						"name": "牡丹皮","nam2": "牡丹皮","fangji": "肾气丸★",
+						"children": 
+						[
+							{
+								"name": "山药","name2": "山药","fangji": "肾气丸★",
+								"children":
+								[
+									{
+										"name": "桂枝","name2": "桂枝","fangji": "肾气丸★",
+										"children":
+										[
+											{
+												"name": "附子","name2": "附子","fangji": "肾气丸★",
+												"children":
+												[
+													{
+														"name": "茯苓","name2": "茯苓","fangji": "肾气丸★",
+														"children":
+														[
+															{
+																"name": "山茱萸","name2": "山茱萸", "fangji": "肾气丸★","size": 1	
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+   			}
+		]
+  	},
+	  {
+		"name": "何首乌","colour":"blue","name2": "何首乌","fangji": "七宝美髯丹",
+		"children": 
+		[
+			{
+				"name": "牛膝","name2": "牛膝","fangji": "七宝美髯丹",
+				"children":
+				[
+					{
+						"name": "枸杞子","name2": "枸杞子","fangji": "七宝美髯丹",
+						"children":
+						[
+							{
+								"name": "菟丝子","name2": "菟丝子","fangji": "七宝美髯丹",
+								"children":
+								[
+									{
+										"name": "当归","name2": "当归","fangji": "七宝美髯丹",
+										"children":
+										[
+											{
+												"name": "茯苓","name2": "茯苓","fangji": "七宝美髯丹",
+												"children":[
+													{
+														"name": "补骨脂","name2": "补骨脂","fangji": "七宝美髯丹", "size": 1	
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	} ,
+	{
+		"name": "熟地黄","name2": "熟地黄","colour":"blue", "fangji": "六味地黄丸★、左归丸、四物汤★、大补阴丸★、地黄饮子★",
+		  "children": 
+		  [
+			  {
+			"name": " ","name2": "熟地黄", "fangji": "四物汤★",
+			"children": 
+			[{
+				"name": " ","name2": "熟地黄", "fangji": "四物汤★",
+			"children":
+			[{
+				"name": " ","name2": "熟地黄", "fangji": "四物汤★",
+			"children":
+				[
+					{
+			"name": "白芍","name2": "白芍","fangji": "四物汤★",
+			"children": 
+			[
+				{
+					"name": "川芎","name2": "川芎","fangji": "四物汤★",
+					"children": 
+					[
+						{
+							"name": "当归","name2": "当归","fangji": "四物汤★","size": 1								
+						}
+					]
+				}
+			
+				
+				]}
+				]}
+				]}
+					]
+				},
+
+
+
+			{
+				"name": " ","name2": "熟地黄", "fangji": "六味地黄丸★、左归丸",
+			"children": 
+			[{
+				"name": " ","name2": "熟地黄", "fangji": "六味地黄丸★、左归丸",
+			"children":
+			[{
+				"name": " ","name2": "熟地黄", "fangji": "六味地黄丸★、左归丸",
+			"children":
+				[
+					{
+				"name": "山药","name2": "山药","fangji": "六味地黄丸★、左归丸",
+				"children": 
+				[
+					{
+						"name": "山茱萸","name2": "山茱萸","fangji": "六味地黄丸★、左归丸",
+						"children": 
+						[
+
+							{
+								"name": "牡丹皮","name2": "'牡丹皮","fangji": "六味地黄丸★",
+								"children":
+								[
+									{
+										"name": "泽泻","name2": "泽泻","fangji": "六味地黄丸★",
+										"children":
+										[
+											{
+												"name": "茯苓","name2": "茯苓","fangji": "六味地黄丸★", "size": 1
+											}
+										]
+									}
+								]
+							}
+							,
+							{
+							   "name": "龟甲胶","name2": "龟甲胶","fangji": "左归丸",
+							   "children":
+							   [
+								   {
+									   "name": "牛膝","name2": "牛膝","fangji": "左归丸",
+									   "children":
+									   [
+										   {
+											   "name": "菟丝子","name2": "菟丝子", "fangji": "左归丸",
+											   "children":
+											   [
+												   {
+													   "name": "枸杞子","name2": "枸杞子","fangji": "左归丸",
+													   "children":
+													   [
+														   {
+															   "name": "鹿角胶","name2": "鹿角胶","fangji": "左归丸", "size": 1	
+														   }
+													   ]
+												   }
+											   ]
+										   }
+									   ]
+								   }
+							   ]
+						   }
+
+						]
+					}
+					
+				]
+
+				}
+				]}
+				]}]
+
+				
+			   }	
+			,
+			{
+				"name": " ","name2": "熟地黄", "fangji": "大补阴丸★",
+				"children": 
+				[{
+					"name": " ","name2": "熟地黄", "fangji": "大补阴丸★",
+				"children":
+				[{
+					"name": "龟甲","name2": "龟甲", "colour":"blue","fangji": "大补阴丸★",
+				"children":
+					[
+						{
+				"name": "黄柏","name2": "黄柏","fangji": "大补阴丸★",
+				"children": 
+				[
+					{
+						"name": "知母","name2": "知母","fangji": "大补阴丸★","size": 1
+					}
+				
+					
+					]}
+					]}
+					]}
+						]
+					}
+					,
+			{
+				"name": "山茱萸","name2": "山茱萸","colour":"blue", "fangji": "地黄饮子★",
+				"children": 
+				[{
+					"name": "肉苁蓉","name2": "肉苁蓉", "colour":"blue","fangji": "地黄饮子★",
+				"children":
+				[{
+					"name": "巴戟天","name2": "巴戟天","colour":"blue", "fangji": "地黄饮子★",
+				"children":
+					[
+						{
+				"name": "石斛","name2": "石斛","fangji": "地黄饮子★",
+				"children": 
+				[
+					{
+						"name": "麦冬","name2": "麦冬","fangji": "地黄饮子★",
+						"children":
+						[
+							{
+								"name": "肉桂", "name2": "肉桂","fangji": "地黄饮子★",
+								"children":
+								[
+									{
+										"name": "附子","name2": "附子", "fangji": "地黄饮子★",
+										"children":
+										[
+											{
+												"name": "茯苓","name2": "茯苓","fangji": "地黄饮子★",
+												"children":
+												[
+													{
+														"name": "大枣","name2": "大枣","fangji": "地黄饮子★", 
+														"children":
+														[
+															{
+																"name": "五味子","name2": "五味子","fangji": "地黄饮子★",
+																"children":
+																[
+																	{
+																		"name": "远志","name2": "远志", "fangji": "地黄饮子★",
+																		"children":
+																		[
+																			{
+																				"name": "石菖蒲","name2": "石菖蒲","fangji": "地黄饮子★",
+																				"children":
+																				[
+																					{
+																						"name": "生姜","name2": "生姜","fangji": "地黄饮子★", 
+																						"children":
+																				[
+																					{
+																						"name": "薄荷","name2": "薄荷","fangji": "地黄饮子★", "size": 1	
+																					}
+																				]
+																					}
+																				]
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				
+					
+					]}
+					]}
+					]}
+			
+			
+			
+						]
+					}
+			
+		]
+	  }
+	 
+	  ,
+	  {
+		"name": "白术","name2": "白术","colour":"blue","fangji": "完带汤★",
+		"children": 
+		[
+			{
+				"name": "山药","name2": "山药","colour":"blue","fangji": "完带汤★",
+				"children":
+				[
+					{
+						"name": "甘草","name2": "甘草","fangji": "完带汤★",
+						"children":
+						[
+							{
+								"name": "人参","name2": "人参","fangji": "完带汤★",
+								"children":
+								[
+									{
+										"name": "陈皮","name2": "陈皮","fangji": "完带汤★",
+										"children":
+										[
+													{
+														"name": "苍术","name2": "苍术","fangji": "完带汤★", 
+														"children":
+														[
+															{
+																"name": "荆芥炭","name2": "荆芥炭","fangji": "完带汤★",
+																"children":
+																[
+																	{
+																		"name": "柴胡","name2": "柴胡","fangji": "完带汤★",
+																		"children":
+																		[
+																			{
+																				"name": "车前子","name2": "车前子","fangji": "完带汤★",
+																				"children":
+																				[
+																					{
+																						"name": "白芍","name2": "白芍","fangji": "完带汤★", "size": 1
+																					
+																					}
+																				]
+																			}
+																		]
+																	}
+																]
+															}
+														]	
+													}
+												
+											
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+	  
+	 
+]
+}
