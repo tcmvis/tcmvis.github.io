@@ -1,0 +1,159 @@
+
+<!doctype html>
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+</head>
+<title>TCM VA</title>
+<link rel="stylesheet" href="w3.css"> 
+<script src="d3.v4.min.js"></script>
+<script src="d3-scale-chromatic.min.js"></script>
+<script src="d3-color.min.js"></script>
+<script src='lasso.js'></script>
+<script src='math.js'></script>
+
+<body>
+<div class = "w3-top">
+    <div class="w3-white w3-xlarge" syle="max-width:1200px; margin:auto">
+            <div id="quitBut" class="w3-left w3-padding-12">
+                <a href="./byebye.html">Quit</a>
+            </div>
+            <div id="headText" class="w3-center w3-padding-12">
+                    <h2><b>中医病案可视分析</b></h2>
+             </div>
+    </div>        
+</div>
+<hr id="intro">
+<!-- <div class="w3-container w3-padding-16 w3-center" style="margin-top:50px">
+        <div id="introText" class="text" text-align="center">
+                <p>Please estimate the angle of the major direction of these samples from the four scatterplots at the bottom.</p>
+            </div>
+        <div id="infoText" class="text" text-align="center">   </div>
+</div> -->
+<style>
+table { 
+		width: 100%; 
+		border-collapse: collapse; 
+	}
+	/* Zebra striping */
+	tr:nth-of-type(odd) { 
+		background: #eee; 
+	}
+	th { 
+		background: #333; 
+		color: white; 
+		font-weight: bold; 
+		cursor: s-resize;
+		background-repeat: no-repeat;
+        background-position: 3% center;
+	}
+	td, th { 
+		padding: 6px; 
+		border: 1px solid #ccc; 
+		text-align: left; 
+	}
+	
+	th.des:after {
+      content: "\21E9";
+    }
+    
+    th.aes:after {
+      content: "\21E7";
+    }
+
+    .scroll {
+		overflow: auto;
+	}
+
+    /* 
+	Max width before this PARTICULAR table gets nasty
+	This query will take effect for any screen smaller than 760px
+	and also iPads specifically.
+	*/
+	@media 
+	only screen and (max-width: 760px),
+	(min-device-width: 500px) and (max-device-width: 500px)  {
+	
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr { 
+			display: block; 
+		}
+		
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr { 
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+		
+		tr { border: 1px solid #FFFFFF; }
+		
+		td { 
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #FFFFFF; 
+			position: relative;
+			padding-left: 50%; 
+		}
+		
+		td:before { 
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 6px;
+			left: 6px;
+			width: 45%; 
+			padding-right: 10px; 
+			white-space: nowrap;
+			background-color: white;
+		}
+		
+		/*
+		Label the data
+		*/
+		td:before {
+		  content: attr(data-th) ": ";
+          font-weight: bold;
+          width: 6.5em;
+          display: inline-block;
+		}
+	}
+	
+
+</style>
+
+<div id="VAcanvas" class=" w3-content w2-mobile w3-cell-row "style=" height:1000px;width:1600px;overflow:scroll">
+    <!-- <div class = "w3-cell-row"> -->
+		
+        <div class="w3-conainter w3-cell w3-mobile" style="overflow:auto">
+
+            <div id="streamGraph" class=" w3-container parcoords" style="width:1300px;height:300px;"></div>
+            <div id="lineCharts" class=" w3-container" style="width:1300px;height:230px;"></div>
+
+            <select id="selectButton" ></select>
+			<select id="mainModeSelectButton" ></select>
+			<select id="compareSelectButton" ></select>
+			<select id="compareModeSelectButton" ></select>
+			<select id="interactModeSelectButton"></select>
+			
+            <div id="exampleSC" class="w3-container" style="width:1500px;height:700px;">        </div>    
+        </div>
+        <div class = "w3-container w3-cell w3-mobile" style="overflow-x:scroll">
+            <div id="page-wrap" class="w3-container" style="width:600px;height:1000px;"></div>
+        </div>
+    <!-- </div> -->
+</div>
+<style>
+/* div.VAcanvas {
+	background-color: #FFFFFF;
+	/* overflow-x: auto; 
+    overflow-y: scroll;  
+} */
+</style>
+
+</body>
+
+<script src="tcmVA.js"></script>
+<script>
+    tcmVAmain();
+</script>

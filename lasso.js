@@ -1,1 +1,125 @@
-d3.lasso=function(){function a(){function b(){d="";l.attr("d",null);c.attr("d",null);g=0;e[0].forEach(function(e){e.hoverSelected=false;e.loopSelected=false;var t=e.getBBox();e.lassoPoint={cx:Math.round(t.x+t.width/2),cy:Math.round(t.y+t.height/2),edges:{top:0,right:0,bottom:0,left:0},close_edges:{left:0,right:0}}});if(i==true){e.on("mouseover.lasso",function(){d3.select(this)[0][0].hoverSelected=true})}u.start()}function w(){var i=d3.mouse(this)[0];var s=d3.mouse(this)[1];if(d==""){d=d+"M "+i+" "+s;v=[i,s];p.attr("cx",i).attr("cy",s).attr("r",7).attr("display",null)}else{d=d+" L "+i+" "+s}e[0].forEach(function(e){e.lassoPoint.close_edges={left:0,right:0}});var o=Math.sqrt(Math.pow(i-v[0],2)+Math.pow(s-v[1],2));var a="M "+i+" "+s+" L "+v[0]+" "+v[1];l.attr("d",d);if(o<=t){c.attr("display",null)}else{c.attr("display","none")}r=o<=t?true:false;var y=d3.select("path")[0][0].attributes.d.value+"Z";h.attr("d",y);var b=l.node();var w=b.getTotalLength();var E=b.getPointAtLength(g-1);for(var S=g;S<=w;S++){var x=b.getPointAtLength(S);var T={x:Math.round(x.x*100)/100,y:Math.round(x.y*100)/100};var N=b.getPointAtLength(S-1);var C={x:Math.round(N.x*100)/100,y:Math.round(N.y*100)/100};e[0].filter(function(e){var t;if(e.lassoPoint.cy===T.y&&e.lassoPoint.cy!=C.y){m={x:C.x,y:C.y};t=false}else if(e.lassoPoint.cy===T.y&&e.lassoPoint.cy===C.y){t=false}else if(e.lassoPoint.cy===C.y&&e.lassoPoint.cy!=T.y){t=f(e.lassoPoint.cy-T.y)!=f(e.lassoPoint.cy-m.y)}else{m={x:C.x,y:C.y};t=f(e.lassoPoint.cy-T.y)!=f(e.lassoPoint.cy-C.y)}return t}).forEach(function(e){if(T.x>e.lassoPoint.cx){e.lassoPoint.edges.right=e.lassoPoint.edges.right+1}if(T.x<e.lassoPoint.cx){e.lassoPoint.edges.left=e.lassoPoint.edges.left+1}})}if(r==true&&n==true){c.attr("d",a);close_path_node=c.node();var k=close_path_node.getTotalLength();var L={left:0,right:0};for(var S=0;S<=k;S++){var x=close_path_node.getPointAtLength(S);var N=close_path_node.getPointAtLength(S-1);e[0].filter(function(e){return e.lassoPoint.cy==Math.round(x.y)}).forEach(function(e){if(Math.round(x.y)!=Math.round(N.y)&&Math.round(x.x)>e.lassoPoint.cx){e.lassoPoint.close_edges.right=1}if(Math.round(x.y)!=Math.round(N.y)&&Math.round(x.x)<e.lassoPoint.cx){e.lassoPoint.close_edges.left=1}})}e[0].forEach(function(e){if(e.lassoPoint.edges.left+e.lassoPoint.close_edges.left>0&&(e.lassoPoint.edges.right+e.lassoPoint.close_edges.right)%2==1){e.loopSelected=true}else{e.loopSelected=false}})}else{e[0].forEach(function(e){e.loopSelected=false})}d3.selectAll(e[0].filter(function(e){return e.loopSelected&&r||e.hoverSelected})).attr("d",function(e){return e.possible=true});d3.selectAll(e[0].filter(function(e){return!(e.loopSelected&&r||e.hoverSelected)})).attr("d",function(e){return e.possible=false});u.draw();g=w+1}function E(){e.on("mouseover.lasso",null);e.filter(function(e){return e.possible===true}).attr("d",function(e){return e.selected=true});e.filter(function(e){return e.possible===false}).attr("d",function(e){return e.selected=false});e.attr("d",function(e){return e.possible=false});l.attr("d",null);c.attr("d",null);p.attr("display","none");u.end()}var s=d3.select(this[0][0]);var a=s.append("g").attr("class","lasso");var l=a.append("path").attr("class","drawn");var c=a.append("path").attr("class","loop_close");var h=a.append("path").attr("display","none");var p=a.append("circle").attr("class","origin");var d;var v;var m;var g;var y=d3.behavior.drag().on("dragstart",b).on("drag",w).on("dragend",E);o.call(y)}function f(e){return e?e<0?-1:1:0}var e=null,t=75,n=true,r=false,i=true,s=[],o=null,u={start:function(){},draw:function(){},end:function(){}};a.items=function(t){if(!arguments.length)return e;e=t;e[0].forEach(function(e){var t=d3.select(e);if(typeof t.datum()==="undefined"){t.datum({possible:false,selected:false})}else{t.attr("d",function(e){e.possible=false;e.selected=false;return e})}});return a};a.closePathDistance=function(e){if(!arguments.length)return t;t=e;return a};a.closePathSelect=function(e){if(!arguments.length)return n;n=e==true?true:false;return a};a.isPathClosed=function(e){if(!arguments.length)return r;r=e==true?true:false;return a};a.hoverSelect=function(e){if(!arguments.length)return i;i=e==true?true:false;return a};a.on=function(e,t){if(!arguments.length)return u;if(arguments.length===1)return u[e];var n=["start","draw","end"];if(n.indexOf(e)>-1){u[e]=t}return a};a.area=function(e){if(!arguments.length)return o;o=e;return a};return a}
+// import * as d3 from 'd3';
+
+function polygonToPath(polygon) {
+  return `M${polygon.map(d => d.join(',')).join('L')}`;
+}
+
+function distance(pt1, pt2) {
+  return Math.sqrt((pt2[0] - pt1[0]) ** 2 + (pt2[1] - pt1[1]) ** 2);
+}
+
+// export default function lasso() {
+function lasso() {
+  const dispatch = d3.dispatch('start', 'end');
+
+  // distance last point has to be to first point before it auto closes when mouse is released
+  let closeDistance = 175;
+
+  function lasso(root) {
+    // append a <g> with a rect
+    const g = root.append('g').attr('class', 'lasso-group');
+    const bbox = root.node().getBoundingClientRect();
+    const area = g
+      .append('rect')
+      .attr('width', bbox.width)
+      .attr('height', bbox.height)
+      .attr('fill', 'tomato')
+      .attr('opacity', 0);
+
+    const drag = d3
+      .drag()
+      .on('start', handleDragStart)
+      .on('drag', handleDrag)
+      .on('end', handleDragEnd);
+
+    area.call(drag);
+
+    let lassoPolygon;
+    let lassoPath;
+    let closePath;
+
+    function handleDragStart() {
+      lassoPolygon = [d3.mouse(this)];
+      if (lassoPath) {
+        lassoPath.remove();
+      }
+
+      lassoPath = g
+        .append('path')
+        .attr('fill', '#0bb')
+        .attr('fill-opacity', 0.1)
+        .attr('stroke', '#0bb')
+        .attr('stroke-dasharray', '3, 3');
+
+      closePath = g
+        .append('line')
+        .attr('x2', lassoPolygon[0][0])
+        .attr('y2', lassoPolygon[0][1])
+        .attr('stroke', '#0bb')
+        .attr('stroke-dasharray', '3, 3')
+        .attr('opacity', 0);
+
+      dispatch.call('start', lasso, lassoPolygon);
+    }
+
+    function handleDrag() {
+      const point = d3.mouse(this);
+      lassoPolygon.push(point);
+      lassoPath.attr('d', polygonToPath(lassoPolygon));
+
+      // indicate if we are within closing distance
+      if (
+        distance(lassoPolygon[0], lassoPolygon[lassoPolygon.length - 1]) <
+        closeDistance
+      ) {
+        closePath
+          .attr('x1', point[0])
+          .attr('y1', point[1])
+          .attr('opacity', 1);
+      } else {
+        closePath.attr('opacity', 0);
+      }
+    }
+
+    function handleDragEnd() {
+      // remove the close path
+      closePath.remove();
+      closePath = null;
+
+      // succesfully closed
+      if (
+        distance(lassoPolygon[0], lassoPolygon[lassoPolygon.length - 1]) <
+        closeDistance
+      ) {
+        lassoPath.attr('d', polygonToPath(lassoPolygon) + 'Z');
+        dispatch.call('end', lasso, lassoPolygon);
+
+        // otherwise cancel
+      } else {
+        lassoPath.remove();
+        lassoPath = null;
+        lassoPolygon = null;
+      }
+    }
+
+    lasso.reset = () => {
+      if (lassoPath) {
+        lassoPath.remove();
+        lassoPath = null;
+      }
+
+      lassoPolygon = null;
+      if (closePath) {
+        closePath.remove();
+        closePath = null;
+      }
+    };
+  }
+
+  lasso.on = (type, callback) => {
+    dispatch.on(type, callback);
+    return lasso;
+  };
+
+  return lasso;
+}
