@@ -122,10 +122,12 @@ a:active{
 #footer { 
 	height:60px; 
 	line-height: 60px;
-	background:#6cf;
+	/*background:rgb(248, 250, 251);*/
 	clear:both; /*新加代码*/
 	margin-top: 5px;
-	text-align: center;
+  margin-left:50px;
+  line-height:150%;
+	/*text-align: center;*/
 }
 p.select {
     font:12px sans-serif;
